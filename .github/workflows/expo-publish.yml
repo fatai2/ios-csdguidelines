@@ -11,8 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Upload app to App Store Connect
         if: startsWith(github.ref, 'refs/tags/v')
-        env:
-          APP_STORE_CONNECT_USERNAME: ${{ secrets.EXPO_APPLE_ID }}
-          APP_STORE_CONNECT_PASSWORD: ${{ secrets.APP_SPECIFIC_PASSWORD }}
         run: |
+          echo "APP_STORE_CONNECT_USERNAME=${{ secrets.EXPO_APPLE_ID }}" >> $GITHUB_ENV
+          echo "APP_STORE_CONNECT_PASSWORD=${{ secrets.APP_SPECIFIC_PASSWORD }}" >> $GITHUB_ENV
           xcrun altool --upload-app -t ios -f "csdguidelines.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
