@@ -21,12 +21,12 @@ jobs:
       - name: Install deps
         run: yarn install
       - name: Build iOS app
-        run: expo build:ios -t archive
-        env:
-            EXPO_APPLE_ID: ${{secrets.EXPO_APPLE_ID}}
-            EXPO_APPLE_ID_PASSWORD: ${{secrets.EXPO_APPLE_ID_PASSWORD}}
+        run: | 
+          expo build:ios -t archive
+          echo "EXPO_APPLE_ID=${{secrets.EXPO_APPLE_ID}}" >> $GITHUB_ENV
+          echo "EXPO_APPLE_ID_PASSWORD=${{secrets.EXPO_APPLE_ID_PASSWORD}}" >> $GITHUB_ENV
       - name: Upload iOS app
-        run: expo upload:ios --app-name "CSD Guidelines"
-        env:
-            EXPO_APPLE_ID: ${{secrets.EXPO_APPLE_ID}}
-            EXPO_APPLE_ID_PASSWORD: ${{secrets.EXPO_APPLE_ID_PASSWORD}}
+        run: |
+          expo upload:ios --app-name "CSD Guidelines"
+          echo "EXPO_APPLE_ID=${{secrets.EXPO_APPLE_ID}}" >> $GITHUB_ENV
+          echo "EXPO_APPLE_ID_PASSWORD=${{secrets.EXPO_APPLE_ID_PASSWORD}}" >> $GITHUB_ENV
