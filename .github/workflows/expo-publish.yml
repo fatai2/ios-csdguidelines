@@ -1,8 +1,9 @@
 name: Publish to Testflight
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - ios-deploy
 
 jobs:
   publish-to-testflight:
