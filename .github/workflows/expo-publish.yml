@@ -14,4 +14,4 @@ jobs:
         run: |
           echo "APP_STORE_CONNECT_USERNAME=${{ secrets.EXPO_APPLE_ID }}" >> $GITHUB_ENV
           echo "APP_STORE_CONNECT_PASSWORD=${{ secrets.APP_SPECIFIC_PASSWORD }}" >> $GITHUB_ENV
-          xcrun altool --upload-app -t ios -f ".\releases\download\v4.0.1\csdguidelines.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
+          xcrun altool --upload-app -t ios -f "${GITHUB_REF}\releases\download\v4.0.1\csdguidelines.ipa" -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
