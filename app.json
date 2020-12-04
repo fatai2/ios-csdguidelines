@@ -24,7 +24,9 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "buildNumber": "4.0.1",
+      "bundleIdentifier": "com.gmail.drfatai998.csdguidelines"
     },
     "android": {
       "package": "com.gmail.drfatai998.csdguidelines",
