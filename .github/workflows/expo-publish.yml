@@ -24,4 +24,4 @@ jobs:
         run: |
           echo "EXPO_APPLE_ID=${{secrets.EXPO_APPLE_ID}}" >> $GITHUB_ENV
           echo "EXPO_APPLE_PASSWORD=${{secrets.APP_SPECIFIC_PASSWORD}}" >> $GITHUB_ENV
-          expo upload:ios --latest --non-interactive --app-name "CSD Guidelines" --apple-id "$EXPO_APPLE_ID" --apple-id-password "$EXPO_APPLE_PASSWORD"
+          expo upload:ios --latest --app-name "CSD Guidelines" --apple-id "$EXPO_APPLE_ID" --apple-id-password "$EXPO_APPLE_PASSWORD"
