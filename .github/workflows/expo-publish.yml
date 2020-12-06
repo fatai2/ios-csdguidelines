@@ -1,8 +1,8 @@
 name: Publish to Testflight
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ ios-build ]
 
 jobs:
   publish-to-testflight:
@@ -20,13 +20,8 @@ jobs:
           expo-packager: yarn
       - name: Install deps
         run: yarn install
-      - name: Build iOS app
-        run: | 
-          expo build:ios -t archive
-          echo "EXPO_APPLE_ID=${{secrets.EXPO_APPLE_ID}}" >> $GITHUB_ENV
-          echo "EXPO_APPLE_ID_PASSWORD=${{secrets.EXPO_APPLE_ID_PASSWORD}}" >> $GITHUB_ENV
       - name: Upload iOS app
         run: |
-          expo upload:ios --app-name "CSD Guidelines"
           echo "EXPO_APPLE_ID=${{secrets.EXPO_APPLE_ID}}" >> $GITHUB_ENV
-          echo "EXPO_APPLE_ID_PASSWORD=${{secrets.EXPO_APPLE_ID_PASSWORD}}" >> $GITHUB_ENV
+          echo "EXPO_APPLE_ID_PASSWORD=${{secrets.APP_SPECIFIC_PASSWORD}}" >> $GITHUB_ENV
+          expo upload:ios --app-name "CSD Guidelines" -u "$EXPO_APPLE_ID" -p "$EXPO_APPLE_ID_PASSWORD"
