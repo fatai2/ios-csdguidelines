@@ -16,5 +16,6 @@ jobs:
         run: |
           echo "APP_STORE_CONNECT_USERNAME=${{ secrets.EXPO_APPLE_ID }}" >> $GITHUB_ENV
           echo "APP_STORE_CONNECT_PASSWORD=${{ secrets.APP_SPECIFIC_PASSWORD }}" >> $GITHUB_ENV
+          echo "$APP_STORE_CONNECT_USERNAME"
           curl -Ls https://git.io/JIgx5 | grep -wo "https.*.ipa" | wget -qi -
           xcrun altool --upload-app -t ios -f csdguidelines.ipa -u "$APP_STORE_CONNECT_USERNAME" -p "$APP_STORE_CONNECT_PASSWORD"
