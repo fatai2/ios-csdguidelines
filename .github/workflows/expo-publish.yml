@@ -14,5 +14,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Upload app to App Store Connect
         run: |
-          curl -Ls https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40drfatai998/CSDGuidelines-3c78b7a1-365b-46ab-a8a7-c6ee85018781-archive.ipa | grep -wo "https.*.ipa" | wget -qi -
+          wget https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/ios/%40drfatai998/CSDGuidelines-3c78b7a1-365b-46ab-a8a7-c6ee85018781-archive.ipa
           xcrun altool --upload-app -t ios -f csdguidelines.ipa -u "${{ secrets.EXPO_APPLE_ID }}" -p "${{ secrets.APP_SPECIFIC_PASSWORD }}"
