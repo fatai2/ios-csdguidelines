@@ -26,7 +26,8 @@
     "ios": {
       "supportsTablet": true,
       "buildNumber": "4.0.1",
-      "bundleIdentifier": "com.gmail.drfatai998.csdguidelines"
+      "bundleIdentifier": "com.gmail.drfatai998.csdguidelines",
+      "ios.config.usesNonExemptEncryption": false
     },
     "android": {
       "package": "com.gmail.drfatai998.csdguidelines",
