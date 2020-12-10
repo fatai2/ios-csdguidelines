@@ -2,7 +2,7 @@ name: Publish to Testflight
 
 on:
   push:
-    branches: [ ios-build ]
+    branches: [ master ]
 
 jobs:
   publish-to-testflight:
